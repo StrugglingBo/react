@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<meta charset='utf8'>
+		<title>学习react</title>
+	</head>
+	<body>
+	<div id="div"></div>
+
+		<!-- 引入react核心库 -->
+		<script src='lib/react.js'></script>
+		<!-- 引入react DOM操作相关的库 -->
+		<script src='lib/react-dom.min.js'></script>
+		<!-- browser.min.js库是用来解析jsx语法的  -> jsd代码  -->
+		<script src='lib/browser.min.js'></script>
+
+			
+		<!-- jsx语法 -->
+		<script type='text/babel'>
+			// var style = {
+			// 	color : 'red',
+			// 	fontSize :'40px',
+			// }
+
+			//自定义一个组件类， 类名：Hello，首字符需大写
+			var Hello = React.createClass({
+				render: function() {
+					// 通过lag属性传递内容给组件
+						return <div>
+							<h1 style={{fontSize:'60px',color:'red'}}>{this.props.lag}{this.props.flg}</h1>
+						</div>;
+					}
+			});
+			//根据上面定义的组件类，生成了一个组件事例
+			//注释：将自定义的Hello组件渲染到div标签中
+			ReactDOM.render(<Hello lag='通过lag属性传递内容给组件' flg=',这个我懂了'></Hello>,document.getElementById('div'));
+		</script>
+	</body>
+</html>
